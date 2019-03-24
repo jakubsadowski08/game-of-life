@@ -1,13 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Random;
 
 public class MyFrame extends JFrame {
 
     private static final int ROWS = 50;
     private static final int COLS = 50;
-    private JButton[][] Squares = new JButton[50][50];
+    private JButton[][] squares = new JButton[50][50];
     private int [][] neighbours = new int[50][50];
 
     private class MyDispatcher implements KeyEventDispatcher {
@@ -66,7 +65,7 @@ public class MyFrame extends JFrame {
         int count = 0;
         for(int i =0;i < indexes.length;i++)
         {
-            if(Squares[indexes[i][0]][indexes[i][1]].getBackground().getRGB() == Color.BLACK.getRGB())
+            if(squares[indexes[i][0]][indexes[i][1]].getBackground().getRGB() == Color.BLACK.getRGB())
             {
                 count++;
             }
@@ -140,15 +139,15 @@ public class MyFrame extends JFrame {
             {
                 if(neighbours[i][j] == 3)
                 {
-                    Squares[i][j].setBackground(Color.BLACK);
+                    squares[i][j].setBackground(Color.BLACK);
                 }
-                else if(neighbours[i][j] == 2 && Squares[i][j].getBackground().getRGB() == Color.BLACK.getRGB())
+                else if(neighbours[i][j] == 2 && squares[i][j].getBackground().getRGB() == Color.BLACK.getRGB())
                 {
-                    Squares[i][j].setBackground(Color.BLACK);
+                    squares[i][j].setBackground(Color.BLACK);
                 }
-                else if(neighbours[i][j] != 2 && Squares[i][j].getBackground().getRGB() == Color.BLACK.getRGB())
+                else if(neighbours[i][j] != 2 && squares[i][j].getBackground().getRGB() == Color.BLACK.getRGB())
                 {
-                    Squares[i][j].setBackground(Color.WHITE);
+                    squares[i][j].setBackground(Color.WHITE);
                 }
             }
         }
@@ -168,8 +167,8 @@ public class MyFrame extends JFrame {
             for(int j=0;j < 50; j++)
             {
                 Button b = new Button();
-                Squares[i][j] = b;
-                add(Squares[i][j]);
+                squares[i][j] = b;
+                add(squares[i][j]);
             }
         }
 
